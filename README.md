@@ -304,6 +304,63 @@ Data: THM{example_flag}
 
 </details>
 
+<details>
+<summary>🧠 Brainfuck Decoder (bf.py)</summary>
+
+Simple script to **decode Brainfuck code** and print output.
+
+---
+
+## 📌 What is Brainfuck?
+
+Uses only 8 commands:
+
+```text
+> < + - . , [ ]
+```
+
+Used in CTF to hide text.
+
+---
+
+## ⚙️ Requirement
+
+```bash
+python3 --version
+```
+
+---
+
+## 🚀 Usage
+
+### 🔹 Pipe input
+
+```bash
+echo 'CODE' | python3 bf.py
+```
+
+### 🔹 From file
+
+```bash
+python3 bf.py < code.bf
+```
+
+---
+
+## 📤 Output
+
+```bash
+Hello World!
+```
+
+---
+
+## 🎯 Note
+
+* Brainfuck is **code, not encoding**
+* It must be **executed to get output**
+</details>
+
 ---
 
 
