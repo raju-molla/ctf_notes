@@ -361,6 +361,44 @@ Hello World!
 * It must be **executed to get output**
 </details>
 
+<details>
+<summary>🧮 Math for ctf</summary>
+
+## 📌 XOR (Exclusive OR)
+
+### 🔹 What is XOR?
+
+* Bitwise operation
+* Used a lot in CTF encoding
+* Hint words: **exclusive**, **xor**
+
+---
+
+### 🔹 Usage
+
+```bash
+python3 xor.py x y
+```
+
+---
+
+### 🔹 Output
+
+```bash
+THM{********}
+```
+
+---
+
+## 🎯 Tips
+
+* Same length strings → try XOR
+* Repeating key → use key XOR
+* Common in crypto CTF
+
+</details>
+
+
 ---
 
 
