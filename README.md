@@ -1,34 +1,61 @@
-# 🛡️ My CTF Toolkit & Notes
+# 🛡️ My CTF Notes
 
-This document contains my personal notes and tools for solving CTF challenges.
-Click each section to expand 👇
+This is my personal CTF learning notes.
+Click sections to expand 👇
 
 ---
 
 <details>
-<summary>🧰 decoder.py (Auto Decoder Script)</summary>
+<summary>🔐 Hashing & Decoder</summary>
 
-### 🔹 What it does
+## 📌 Hashing
 
-* Automatically tries:
+### 🔹 What is Hashing
 
-  * Base64, Base32
-  * Hex
-  * ROT13
-  * URL decode
-  * Binary / Decimal ASCII
+* One-way function (cannot reverse directly)
+* Common types:
+
+  * MD5
+  * SHA1
+  * SHA256
 
 ---
 
-### 🔹 Requirements
+### 🔹 Usage
 
 ```bash
-python3 --version
+md5sum file.txt
+sha1sum file.txt
+sha256sum file.txt
 ```
 
 ---
 
-### 🔹 How to run
+### 🔹 Important
+
+* Hashes cannot be decoded
+* Only possible by:
+
+  * Brute force
+  * Wordlist attack
+
+---
+
+## 📌 decoder.py
+
+### 🔹 What it does
+
+* Auto-decodes:
+
+  * Base64
+  * Hex
+  * ROT13
+  * URL
+  * Binary / Decimal
+
+---
+
+### 🔹 Run
 
 ```bash
 python3 decoder.py "SGVsbG8="
@@ -49,25 +76,22 @@ python3 decoder.py "$(cat file.txt)"
 Hello
 ```
 
-👉 Helps quickly find hidden decoded values
+---
+
+### 🔹 Use case
+
+* Find hidden encoded strings in CTF
 
 </details>
 
 ---
 
 <details>
-<summary>🖼️ exiftool (Metadata Analysis)</summary>
+<summary>🖼️ Image Extraction & Steganography</summary>
 
-### 🔹 What it does
+## 📌 Metadata (EXIF)
 
-* Extracts hidden metadata from images
-* Useful for finding:
-
-  * Comments
-  * Hidden flags
-  * Author info
-
----
+### 🔹 Tool: exiftool
 
 ### 🔹 Install
 
@@ -85,28 +109,17 @@ exiftool image.jpg
 
 ---
 
-### 🔹 Output Example
+### 🔹 What to look for
 
-```bash
-Comment: THM{flag_here}
-```
-
-</details>
+* Comments
+* Hidden text
+* Strange values
 
 ---
 
-<details>
-<summary>🔐 Steghide</summary>
+## 📌 Steghide
 
-### 🔹 Tool: Steghide
-
-### 🔹 What it does
-
-* Hides or extracts data inside images (JPG, BMP)
-
----
-
-### 🔹 Check for hidden data
+### 🔹 Check hidden data
 
 ```bash
 steghide info image.jpg
@@ -120,30 +133,19 @@ steghide info image.jpg
 steghide extract -sf image.jpg
 ```
 
-👉 Requires password
-
 ---
 
-### 🔹 Output
+## 📌 Stegseek
+
+### 🔹 Crack password
 
 ```bash
-wrote extracted data to "secret.txt"
+stegseek image.jpg /usr/share/wordlists/rockyou.txt
 ```
 
-</details>
-
 ---
 
-<details>
-<summary>🧪 zsteg (LSB Steganography)</summary>
-
-### 🔹 Tool: zsteg
-
-### 🔹 What it does
-
-* Finds hidden data in pixel bits (LSB)
-
----
+## 📌 zsteg
 
 ### 🔹 Install
 
@@ -161,50 +163,7 @@ zsteg image.png
 
 ---
 
-### 🔹 Output Example
-
-```bash
-b1,r,lsb: "hidden_message"
-```
-
-</details>
-
----
-
-<details>
-<summary>🚀 Stegseek (Password Cracker)</summary>
-
-### 🔹 Tool: Stegseek
-
-### 🔹 What it does
-
-* Brute-force steghide passwords using wordlists
-
----
-
-### 🔹 Usage
-
-```bash
-stegseek image.jpg /usr/share/wordlists/rockyou.txt
-```
-
----
-
-### 🔹 Output
-
-```bash
-Found passphrase: password123
-Extracting data...
-```
-
-</details>
-
----
-
-<details>
-<summary>🧠 My CTF Workflow</summary>
-
-### 🔹 Steps
+## 📌 Basic Commands
 
 ```bash
 file image.jpg
@@ -218,21 +177,27 @@ zsteg image.png
 
 ---
 
-### 🔹 Tips
+## ⚠️ Tips
 
-* Always check `strings` first
-* JPG ≠ steghide always
+* Start with `strings`
+* Check metadata first
+* JPG ≠ always steghide
 * Use multiple tools
-* Think logically, not blindly
-
-</details>
 
 ---
 
 ## 🎯 Goal
 
-* Build strong CTF skills
-* Solve challenges faster
-* Keep all knowledge in one place
+* Extract hidden flags from images
+* Understand steganography techniques
+
+</details>
 
 ---
+
+## 🚀 Future Sections
+
+* Web Exploitation
+* Privilege Escalation
+* Reverse Engineering
+* Cryptography
