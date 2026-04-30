@@ -41,17 +41,26 @@ sha256sum file.txt
 
 ---
 
-## 📌 decoder.py
+## 📌 decoder.py (Auto Multi-Decoder)
 
 ### 🔹 What it does
 
-* Auto-decodes:
+* Automatically tries:
 
-  * Base64
+  * Base16 / Base32 / Base64 / Base58 / Base85
   * Hex
-  * ROT13
-  * URL
-  * Binary / Decimal
+  * ROT13 + Caesar shifts
+  * URL / HTML decode
+  * Binary / Decimal / Octal ASCII
+  * Zlib / Gzip / BZ2 / LZMA (hex)
+
+---
+
+### 🔹 Requirement (optional)
+
+```bash
+pip install base58
+```
 
 ---
 
@@ -69,18 +78,43 @@ python3 decoder.py "$(cat file.txt)"
 
 ---
 
-### 🔹 Output
+### 🔹 Output Example
 
 ```bash
 [Base64]
 Hello
+
+[Caesar Shift 13]
+Uryyb
 ```
 
 ---
 
 ### 🔹 Use case
 
-* Find hidden encoded strings in CTF
+* Detect unknown encoding automatically
+* Useful when you don’t know encoding type in CTF
+
+---
+
+### 🔹 Example (Base58)
+
+```bash
+python3 decoder.py "3agrSy1CewF9v8ukcSkPSYm3oKUoByUpKG4L"
+```
+
+```bash
+[Base58]
+THM{17_h45_l3553r_l3773r5}
+```
+
+---
+
+### 🔹 Notes
+
+* Prints only readable results
+* Skips invalid decoders automatically
+* Good for quick CTF analysis
 
 </details>
 
@@ -193,6 +227,8 @@ zsteg image.png
 
 </details>
 
+---
+
 <details>
 <summary>📷 QR Code Decoder</summary>
 
@@ -238,6 +274,7 @@ pip install opencv-python pyzbar pillow
 ```
 
 ---
+
 ### 🔹 Run
 
 ```bash
@@ -266,3 +303,7 @@ Data: THM{example_flag}
 * Use `binwalk -e image.jpg` if QR is hidden inside
 
 </details>
+
+---
+
+
