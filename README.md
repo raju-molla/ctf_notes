@@ -1,25 +1,26 @@
-# 🧰 CTF Tools Notes (Simple Guide)
+# 🛡️ My CTF Toolkit & Notes
 
-## 📌 1. decoder.py (Python Decoder Script)
+This document contains my personal notes and tools for solving CTF challenges.
+Click each section to expand 👇
+
+---
+
+<details>
+<summary>🧰 decoder.py (Auto Decoder Script)</summary>
 
 ### 🔹 What it does
 
-This script tries different decoding methods automatically:
+* Automatically tries:
 
-* Base64
-* Base32
-* Hex
-* ROT13
-* URL decode
-* Binary / Decimal ASCII
+  * Base64, Base32
+  * Hex
+  * ROT13
+  * URL decode
+  * Binary / Decimal ASCII
 
 ---
 
 ### 🔹 Requirements
-
-* Python 3 installed
-
-Check:
 
 ```bash
 python3 --version
@@ -33,7 +34,7 @@ python3 --version
 python3 decoder.py "SGVsbG8="
 ```
 
-OR with file:
+OR:
 
 ```bash
 python3 decoder.py "$(cat file.txt)"
@@ -43,27 +44,28 @@ python3 decoder.py "$(cat file.txt)"
 
 ### 🔹 Output
 
-* Shows possible decoded values
-* Example:
-
-```
+```bash
 [Base64]
 Hello
 ```
 
-👉 Helps find hidden text quickly in CTF challenges
+👉 Helps quickly find hidden decoded values
+
+</details>
 
 ---
 
-## 📌 2. exiftool (Image Metadata Tool)
+<details>
+<summary>🖼️ exiftool (Metadata Analysis)</summary>
 
 ### 🔹 What it does
 
-Reads hidden metadata from images:
+* Extracts hidden metadata from images
+* Useful for finding:
 
-* Comments
-* Author
-* Hidden strings
+  * Comments
+  * Hidden flags
+  * Author info
 
 ---
 
@@ -75,7 +77,7 @@ sudo apt install exiftool
 
 ---
 
-### 🔹 How to use
+### 🔹 Usage
 
 ```bash
 exiftool image.jpg
@@ -83,26 +85,28 @@ exiftool image.jpg
 
 ---
 
-### 🔹 Output
+### 🔹 Output Example
 
-* Shows all metadata inside the image
-* Sometimes contains flag like:
+```bash
+Comment: THM{flag_here}
+```
 
-```
-Comment: THM{example_flag}
-```
+</details>
 
 ---
 
-## 📌 3. Steghide
+<details>
+<summary>🔐 Steghide</summary>
+
+### 🔹 Tool: Steghide
 
 ### 🔹 What it does
 
-Used to hide or extract secret files inside images (JPG, BMP)
+* Hides or extracts data inside images (JPG, BMP)
 
 ---
 
-### 🔹 Check if data exists
+### 🔹 Check for hidden data
 
 ```bash
 steghide info image.jpg
@@ -110,31 +114,34 @@ steghide info image.jpg
 
 ---
 
-### 🔹 Extract data
+### 🔹 Extract
 
 ```bash
 steghide extract -sf image.jpg
 ```
 
-👉 Will ask for password
+👉 Requires password
 
 ---
 
 ### 🔹 Output
 
-```
+```bash
 wrote extracted data to "secret.txt"
 ```
 
+</details>
+
 ---
 
-## 📌 4. zsteg
+<details>
+<summary>🧪 zsteg (LSB Steganography)</summary>
+
+### 🔹 Tool: zsteg
 
 ### 🔹 What it does
 
-Finds hidden data using LSB (least significant bit)
-
-👉 Mostly used for PNG but can try on JPG
+* Finds hidden data in pixel bits (LSB)
 
 ---
 
@@ -146,7 +153,7 @@ gem install zsteg
 
 ---
 
-### 🔹 How to use
+### 🔹 Usage
 
 ```bash
 zsteg image.png
@@ -154,26 +161,28 @@ zsteg image.png
 
 ---
 
-### 🔹 Output
+### 🔹 Output Example
 
-* Shows hidden text or encoded data
-* Example:
-
-```
+```bash
 b1,r,lsb: "hidden_message"
 ```
 
+</details>
+
 ---
 
-## 📌 5. Stegseek
+<details>
+<summary>🚀 Stegseek (Password Cracker)</summary>
+
+### 🔹 Tool: Stegseek
 
 ### 🔹 What it does
 
-Cracks steghide password using wordlist
+* Brute-force steghide passwords using wordlists
 
 ---
 
-### 🔹 How to use
+### 🔹 Usage
 
 ```bash
 stegseek image.jpg /usr/share/wordlists/rockyou.txt
@@ -183,14 +192,19 @@ stegseek image.jpg /usr/share/wordlists/rockyou.txt
 
 ### 🔹 Output
 
-```
+```bash
 Found passphrase: password123
 Extracting data...
 ```
 
+</details>
+
 ---
 
-## 🧠 Simple CTF Workflow
+<details>
+<summary>🧠 My CTF Workflow</summary>
+
+### 🔹 Steps
 
 ```bash
 file image.jpg
@@ -204,19 +218,21 @@ zsteg image.png
 
 ---
 
-## ⚠️ Important Tips
+### 🔹 Tips
 
-* Always start with `strings` and `exiftool`
-* JPG file does NOT always mean steghide
-* Try multiple tools, not just one
+* Always check `strings` first
+* JPG ≠ steghide always
+* Use multiple tools
+* Think logically, not blindly
+
+</details>
 
 ---
 
-## ✅ Result
+## 🎯 Goal
 
-Using these tools, you can:
+* Build strong CTF skills
+* Solve challenges faster
+* Keep all knowledge in one place
 
-* Find hidden flags
-* Extract secret files
-* Decode encoded values
-* Solve CTF challenges faster
+---
