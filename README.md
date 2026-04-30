@@ -193,11 +193,76 @@ zsteg image.png
 
 </details>
 
+<details>
+<summary>📷 QR Code Decoder</summary>
+
+## 📌 Decode QR from Image
+
+### 🔹 Tool: zbarimg
+
+### 🔹 Install
+
+```bash
+sudo apt install zbar-tools
+```
+
 ---
 
-## 🚀 Future Sections
+### 🔹 Usage
 
-* Web Exploitation
-* Privilege Escalation
-* Reverse Engineering
-* Cryptography
+```bash
+zbarimg image.jpg
+```
+
+---
+
+### 🔹 Output Example
+
+```bash
+QR-Code:THM{example_flag}
+```
+
+👉 Fastest way to decode QR in CTF
+
+---
+
+## 🐍 Python QR Decoder
+
+### 🔹 Requirements
+
+```bash
+sudo apt install libzbar0 python3-venv
+python3 -m venv myenv
+source myenv/bin/activate
+pip install opencv-python pyzbar pillow
+```
+
+---
+### 🔹 Run
+
+```bash
+python3 qr_decoder.py image.jpg
+```
+
+---
+
+### 🔹 Output
+
+```bash
+Type: QRCODE
+Data: THM{example_flag}
+```
+
+---
+
+## 🧠 Tips
+
+* Try `zbarimg` first (faster)
+* If QR not detected:
+
+  * crop image
+  * increase contrast
+  * rotate image
+* Use `binwalk -e image.jpg` if QR is hidden inside
+
+</details>
