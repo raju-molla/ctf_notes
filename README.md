@@ -441,6 +441,83 @@ java -jar Stegsolve.jar
 
 </details>
 
+<details>
+<summary>🔐 Vigenère Auto Solver (Known Plaintext)</summary>
+
+## 📌 What it does
+
+* Finds the **Vigenère key automatically**
+* Decrypts ciphertext using a **known plaintext prefix**
+* Useful in CTF when flag format is known (e.g., `TRYHACKME{}`)
+
+---
+
+## ⚙️ Requirements
+
+```bash
+python3 --version
+```
+
+---
+
+## 🧠 How it works
+
+* Uses known plaintext (e.g., `TRYHACKME`)
+* Computes key using:
+
+```text
+Key = (Cipher - Plain) mod 26
+```
+
+* Then decrypts full ciphertext
+
+---
+
+## 🚀 Usage
+
+```bash
+python3 auto_vigenere.py
+```
+
+---
+
+### 🔹 Input Example
+
+```text
+Enter full ciphertext: MYKAHODTQ{RVG_YVGGK_FAL_WXF}
+Enter known plaintext prefix: TRYHACKME
+```
+
+---
+
+## 📤 Output
+
+```text
+Found key:
+TOMYGIMMM
+
+Decrypted text:
+TRYHACKME{YOU_FOUND_THE_KEY}
+```
+
+---
+
+## 🎯 Use Case
+
+* Vigenère cipher challenges
+* Known prefix attacks
+* CTF flags with fixed format
+
+---
+
+## ⚠️ Note
+
+* Requires correct known plaintext
+* Key may repeat pattern
+
+</details>
+
+
 
 ---
 
