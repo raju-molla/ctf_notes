@@ -95,6 +95,11 @@ def caesar(value, shift):
     return result
 
 
+def decode_big_integer(value):
+    n = int(value)
+    return n.to_bytes((n.bit_length() + 7) // 8, "big")
+
+
 def main():
     if len(sys.argv) < 2:
         print(f"Usage: python3 {sys.argv[0]} '<encoded_value>'")
@@ -136,7 +141,7 @@ def main():
     show("Gzip Hex", decode_gzip_hex, value)
     show("BZ2 Hex", decode_bz2_hex, value)
     show("LZMA Hex", decode_lzma_hex, value)
-
+    show("Big Integer to Bytes", decode_big_integer, value)
 
 if __name__ == "__main__":
     main()
