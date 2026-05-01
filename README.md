@@ -398,6 +398,49 @@ THM{********}
 
 </details>
 
+<details>
+<summary>🖼️ Stegsolve (Install & Usage Guide)</summary>
+
+## 📌 Why we use it
+
+* Detect hidden data inside images
+* Analyze color channels (RGB)
+* Reveal LSB (bit-level) steganography
+* Common in PNG CTF challenges
+
+---
+
+## ⚙️ Installation
+
+```bash
+wget http://www.caesum.com/handbook/Stegsolve.jar
+```
+
+---
+
+## 🚀 Run
+
+```bash
+java -jar Stegsolve.jar
+```
+
+---
+
+## 🧪 Usage
+
+* Open image → **File → Open**
+* Use **← / → arrow keys** to switch layers
+* Look for hidden text / patterns
+
+---
+
+## 🎯 Summary
+
+* Tool for **visual steganography analysis**
+* Helps find hidden flags in image layers
+
+</details>
+
 
 ---
 
