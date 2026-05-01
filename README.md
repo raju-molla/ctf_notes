@@ -53,6 +53,7 @@ sha256sum file.txt
   * URL / HTML decode
   * Binary / Decimal / Octal ASCII
   * Zlib / Gzip / BZ2 / LZMA (hex)
+  * Big Int 
 
 ---
 
