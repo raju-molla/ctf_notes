@@ -542,6 +542,7 @@ $port = 4444;
 
 
 ---
+</details>
 <details>
 <summary>Bash Reverse Shell</summary>
 
